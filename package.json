@@ -1,0 +1,101 @@
+{
+  "name": "veo3-video-generator-frontend",
+  "version": "1.0.0",
+  "description": "React/TypeScript frontend for Veo 3 Video Generator with neural network theme",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:analyze": "ANALYZE=true vite build",
+    "build:production": "NODE_ENV=production vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives --max-warnings 50",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md}\"",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "docker:build": "docker build -t veo3-frontend .",
+    "docker:run": "docker run -p 8080:8080 veo3-frontend",
+    "deploy:build": "npm run type-check && npm run build:production",
+    "lighthouse": "lighthouse https://studio.lostmindai.com --form-factor=mobile --output=html --output=json --output-path=./lighthouse-reports/audit",
+    "lighthouse:desktop": "lighthouse https://studio.lostmindai.com --preset=desktop --output=html --output=json --output-path=./lighthouse-reports/desktop-audit",
+    "lighthouse:ci": "npm run lighthouse && npm run lighthouse:desktop && git add PERFORMANCE_REPORT.md"
+  },
+  "dependencies": {
+    "@sentry/react": "^10.5.0",
+    "@sentry/tracing": "^7.120.4",
+    "@tanstack/react-query": "^5.85.3",
+    "axios": "^1.11.0",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "framer-motion": "^10.18.0",
+    "lucide-react": "^0.294.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.2.3",
+    "react-hook-form": "^7.62.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.30.1",
+    "recharts": "^3.1.2",
+    "socket.io-client": "^4.7.4",
+    "tailwind-merge": "^2.1.0",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitest/coverage-v8": "^1.0.4",
+    "@vitest/ui": "^1.0.4",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tailwindcss": "^3.4.17",
+    "terser": "^5.43.1",
+    "typescript": "^5.9.2",
+    "vite": "^5.4.19",
+    "vitest": "^1.0.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "author": "LostMindAI",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "typescript",
+    "video-generation",
+    "veo-3",
+    "neural-network",
+    "ai"
+  ],
+  "main": "index.js"
+}
