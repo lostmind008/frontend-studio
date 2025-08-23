@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "veo3-studio-frontend",
   
   "buildCommand": "npm run deploy:build",
   "outputDirectory": "dist",
@@ -124,11 +123,6 @@
     }
   ],
   
-  "functions": {
-    "app/api/**/*.js": {
-      "maxDuration": 10
-    }
-  },
   
   "regions": ["iad1", "sfo1", "lhr1"],
   
